@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+/* desktop */
+@media screen and (min-width: 1024px){
+    /* 3column grid */
+    .pcol01{ float: left; width: 100%  }
+    .pcol02{ float: left; width: 50% }
+    .pcol03{ float: left; width: 33.33% }
+    .pcol04{ float: left; width: 66.66% } /* 2/3 */
+    .pcol05{ float: left; width: 16.66% } /* 3/5 */
+}
+
+/* tablet */
+@media screen and (max-width: 1023px){
+    /* 3column grid */
+    .tcol01{ float: left; width: 100%; } 
+    .tcol02{ float: left; width: 50% }
+    .tcol03{ float: left; width: 33.33% } 
+    .tcol04{ float: left; width: 66.66% } /* 2/3 */
+}
+
+/* mobile */
+@media screen and (max-width: 767px){
+    /* 3column grid */
+    .mcol01{ float: left; width: 100%; } 
+    .mcol02{ float: left; width: 50%; } 
+    .mcol03{ float: left; width: 33.33%; }
+}

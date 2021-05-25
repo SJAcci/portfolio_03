@@ -1,0 +1,507 @@
+@charset "UTF-8";
+
+/* 
+    font-family: 'Montserrat', sans-serif; 
+    font-family: 'S-CoreDream-2ExtraLight', "맑은고딕", sans-serif;
+    font-family: 'S-CoreDream-3Light', "맑은고딕", sans-serif;
+    font-family: 'S-CoreDream-5Medium', "맑은고딕", sans-serif;
+*/
+
+/*
+    color: #E0E0E0; //mainColor
+    color: #212429; //subColor01
+    color: #EAE6DB; //subColor02
+*/
+
+/*=========================== 공통작업 ===============================*/
+body{ overflow-x: hidden; }
+main{
+    width: 100%; overflow: hidden; /* 높이는 제이쿼리에서 한화면으로 설정 */
+    min-height: 568px; /* 아이폰 5 최소사이즈 */
+}
+
+
+/* popUp */
+.popUp{ 
+    position: fixed; left: 0; top: 0; z-index: 10000; 
+    width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.7); 
+}
+.pWrap{
+    position: absolute; 
+    left: 0; right: 0; top: 0; bottom: 0; margin: auto;
+    width: 28.125rem; height: 43.75rem;
+    border: 5px solid #212429; box-sizing: border-box;
+    background-color: #EAE6DB; 
+}
+.popUp .deco{width: calc(100% - 30px); height: 10px; margin: 15px; box-sizing: border-box; }
+.popUp .deco > div{ width: 10px; height: 10px; border-radius: 5px; background-color: #212429; }
+.popUp .deco div:first-child{ float: left; }
+.popUp .deco div:last-child{ float: right; }
+.pTop{ 
+    width: 100%; height: calc(90% - 40px); margin: 0 auto; padding: 170px 60px; box-sizing: border-box;
+}
+.pTop p{ width: 100%; text-align: justify-all; font-size: 0.875rem; line-height: 1.5rem; }
+
+.pBottom{ width: 100%; height: 10%; border-top: 5px solid #212429; box-sizing: border-box; }
+.pBottom > div{
+    width: 50%; height: 100%; 
+    padding: 20px 0; box-sizing: border-box; 
+    text-align: center; letter-spacing: 3px; cursor: pointer;
+    font-weight: 700; 
+}
+.pBottom .never{ float: left; color: #fff; background-color: #212429; }
+.pBottom .close{ float: right; }
+
+/* mSlider */
+.mSlider{ width: 100%; height: 1024px; z-index: 10; }
+.mSlider .swiper-container{ position: relative; width: 100%; height: 100%; }
+
+.mSlider .imgBg{ 
+    float: left; width: 50%; height: 100%; 
+    background-repeat: no-repeat; background-size: cover; background-position: center;
+    object-fit: contain;
+}
+.mSlider .bg{ float: right; width: 50%; height: 100%; background-color: #212429; }
+
+
+.mSlider .slide01 .imgBg{ background-image: url(../images/main/mslider_img01.png); }
+.mSlider .slide02 .imgBg{ background-image: url(../images/main/mslider_img02.png); }
+.mSlider .slide03 .imgBg{ background-image: url(../images/main/mslider_img03.png); }
+
+
+/* mSlider - pagination */
+.mSlider .swiper-pagination{
+    position: absolute;
+    width: 100px; height: 8px;
+    transform: rotateZ(90deg);
+}
+.mSlider .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .mSlider .swiper-pagination-fraction{ left: auto; right: 0; top: 50%;  }
+.mSlider .swiper-pagination-bullet{ height: 100%; opacity: 1; background-color: #fff;}
+.mSlider .swiper-pagination-bullet.swiper-pagination-bullet-active{ background-color: #fff; width: 40px; border-radius: 5px; transition: 0.3s; }
+
+/* mSlider - next btn */
+.mSlider .swiper-button-next{ 
+    left: 0; 
+    width: 260px; height: 60px; 
+    padding: 0 20px; box-sizing: border-box;
+    border: 5px solid #212429; background-color: #212429; 
+    font-size: 1.125rem; font-family: 'S-CoreDream-5Medium', "맑은고딕", sans-serif; color: #E0E0E0;
+    text-align: center; letter-spacing: 2px;
+    transition: 0.3s;
+}
+.mSlider .swiper-button-next:after{ 
+    position: absolute; right: 20px; 
+    font-size: 1.125rem; font-weight: 600; 
+}
+.mSlider .swiper-button-next:hover{
+    background-color: #fff; color: #212429;
+}
+
+/* mSlider - textWrap */
+.textWrap{
+    position: absolute; top: calc(50% - 8.125rem); left: calc(50% + 60px); z-index: 600;
+}
+.textWrap > *{ color: #fff; text-align: left; }
+.textWrap h4:before{ background-color: #fff; left: 0;}
+
+/* mSlider - progress */
+.progress{
+    position: absolute; right: 60px; top: 120px; z-index: 600; 
+    width: 5px; height: 300px; 
+}
+.progress span{ 
+    position: absolute; right: -85px; top: 70px; width: 150px; 
+    transform: rotateZ(90deg); color: #fff; 
+    letter-spacing: 2px;
+}
+.progress > div{
+    position: absolute; left: -1px;
+    width: 5px; height: 300px; border: 1px solid rgba(255,255,255,0.1);
+}
+.progress .bar{
+    width: 100%; height: 100%; 
+    background-color: #fff; transform: scaleY(0);
+    /* transition: 6s ease-in-out; */ transform-origin: top; 
+}
+.progress .bar.active{ transform: scaleY(1);transition: 6s ease-in-out; }
+
+
+/* main sections - div */
+.arrivals, .product, .news{ margin: 100px 0; }
+
+/* arrivals */
+.arrivals{ padding: 0 60px; overflow: hidden; }
+/*.deco{ 
+    position: absolute; z-index: 1; top: 300px; right: -590px; 
+    width: 1180px; height: 1180px; border-radius: 590px; 
+    background-color: #212429; opacity: 0.5;
+}*/
+.bgBeige{ 
+    z-index: 2;
+    float: left; 
+    position: relative; 
+    width: 100%; max-width: 100%; margin: 0 auto; padding: 50px 0 80px; background-color: #EAE6DB; 
+}
+.arrivals .swiper-container{ display: none; }
+.arrivals .wrap{ margin-top: 30px; }
+.arrivals .wrap > div{ background-repeat: no-repeat; background-size: cover; background-position: center; }
+.arrivals .box01{ background-image: url(../images/main/arrivals_img01.jpg); }
+.arrivals .box02{ background-image: url(../images/main/arrivals_img02.jpg); }
+.arrivals .box03{ background-image: url(../images/main/arrivals_img03.jpg); }
+.arrivals .box04{ background-image: url(../images/main/arrivals_img04.jpg); }
+.arrivals figcaption{ display: none;}
+
+
+/* product */
+.product{ padding: 0 60px; }
+
+
+/* product - btn */
+.product .tabBox .btn{ 
+    width: 1180px; height: 3.75rem;
+    max-width: 100%; margin: 30px auto; 
+}
+.product .tabBox .btn li{
+    float: left; 
+    width: calc(25% - 15px); height: 100%; 
+    margin-right: 20px; box-sizing: border-box;
+    border: 5px solid #212429;
+    text-align: center; 
+}
+.product .tabBox .btn li:last-child{ margin-right: 0; }
+.product .tabBox .btn a{
+    display: block; 
+    width: 100%; height: 100%; 
+    font-weight: 500; letter-spacing: 2px; line-height: calc(3.75rem - 10px);
+    font-family: 'S-CoreDream-5Medium', "맑은고딕", sans-serif;
+    transition: 0.3s; background-color: #fff;
+}
+.product .tabBox .btn a.active{ color: #fff; background-color: #212429; }
+
+/* product - swiper */
+.product .conWrap{
+    position: relative; 
+    width: 100%; height: 37.5rem; 
+}
+.product .swiper-wrapper{
+    background-color: lightcyan;
+    width: 100%; height: 90%;
+}
+
+.product .swiper-container{
+    display: none;
+    width: 100%; height: 100%; 
+}
+.product .swiper-slide{ 
+    background-repeat: no-repeat; background-size: contain; background-position: center; background-color: #fff; 
+}
+
+/* product - pagination & next/prev btn */ 
+.product .btnWrap{
+    position: relative; 
+    width: 100%; height: 10%;
+    margin: 0 auto; 
+}
+.product .swiper-pagination{
+    position: absolute; top: 0; left: 0; right: 0;
+    width: 100%; height: 8px; 
+    background-color: #E0E0E0;
+}
+.product .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{ background-color: rgba(33,36,41,0.8); }
+.product .swiper-button-next, .swiper-button-prev{
+    height: calc(100% - 8px); bottom: 0; 
+    color: #212429; font-size: 1rem;
+    
+}
+.product .swiper-button-prev:after{ content: ''; }
+.product .swiper-button-prev:before{content: '〈'; font-size: 1rem; }
+.product .swiper-button-next:after{
+    content: '〉';
+    font-family: 'S-CoreDream-3Light', "맑은고딕", sans-serif;
+    font-size: 1rem;
+}
+
+/* product - pen - swiper */
+.pen .slide01{ background-image: url(../images/main/product_pen_img01.jpg); }
+.pen .slide02{ background-image: url(../images/main/product_pen_img02.jpg); }
+.pen .slide03{ background-image: url(../images/main/product_pen_img03.jpg); }
+.pen .slide04{ background-image: url(../images/main/product_pen_img04.jpg); }
+.pen .slide05{ background-image: url(../images/main/product_pen_img05.jpg); }
+.pen .slide06{ background-image: url(../images/main/product_pen_img06.jpg); }
+.pen .slide07{ background-image: url(../images/main/product_pen_img07.jpg); }
+.pen .slide08{ background-image: url(../images/main/product_pen_img08.jpg); }
+.pen .slide09{ background-image: url(../images/main/product_pen_img09.jpg); }
+.pen .slide10{ background-image: url(../images/main/product_pen_img10.jpg); }
+.pen .slide11{ background-image: url(../images/main/product_pen_img11.jpg); }
+.pen .slide12{ background-image: url(../images/main/product_pen_img12.jpg); }
+.pen .slide13{ background-image: url(../images/main/product_pen_img13.jpg); }
+.pen .slide14{ background-image: url(../images/main/product_pen_img14.jpg); }
+.pen .slide15{ background-image: url(../images/main/product_pen_img15.jpg); }
+.pen .slide16{ background-image: url(../images/main/product_pen_img16.jpg); }
+.pen .slide17{ background-image: url(../images/main/product_pen_img17.jpg); }
+.pen .slide18{ background-image: url(../images/main/product_pen_img18.jpg); }
+.pen .slide19{ background-image: url(../images/main/product_pen_img19.jpg); }
+
+
+/* product - marker - swiper */
+.marker .slide01{ background-image: url(../images/main/product_marker_img01.jpg); }
+.marker .slide02{ background-image: url(../images/main/product_marker_img02.jpg); }
+.marker .slide03{ background-image: url(../images/main/product_marker_img03.jpg); }
+.marker .slide04{ background-image: url(../images/main/product_marker_img04.jpg); }
+.marker .slide05{ background-image: url(../images/main/product_marker_img05.jpg); }
+.marker .slide06{ background-image: url(../images/main/product_marker_img06.jpg); }
+.marker .slide07{ background-image: url(../images/main/product_marker_img07.jpg); }
+.marker .slide08{ background-image: url(../images/main/product_marker_img08.jpg); }
+.marker .slide09{ background-image: url(../images/main/product_marker_img09.jpg); }
+.marker .slide10{ background-image: url(../images/main/product_marker_img10.jpg); }
+.marker .slide11{ background-image: url(../images/main/product_marker_img11.jpg); }
+.marker .slide12{ background-image: url(../images/main/product_marker_img12.jpg); }
+.marker .slide13{ background-image: url(../images/main/product_marker_img13.jpg); }
+.marker .slide14{ background-image: url(../images/main/product_marker_img14.jpg); }
+.marker .slide15{ background-image: url(../images/main/product_marker_img15.jpg); }
+.marker .slide16{ background-image: url(../images/main/product_marker_img16.jpg); }
+.marker .slide17{ background-image: url(../images/main/product_marker_img17.jpg); }
+.marker .slide18{ background-image: url(../images/main/product_marker_img18.jpg); }
+.marker .slide19{ background-image: url(../images/main/product_marker_img19.jpg); }
+.marker .slide20{ background-image: url(../images/main/product_marker_img20.jpg); }
+
+/* product - highlighter - swiper */
+.highlighter .slide01{ background-image: url(../images/main/product_highlighter_img01.jpg); }
+.highlighter .slide02{ background-image: url(../images/main/product_highlighter_img02.jpg); }
+.highlighter .slide03{ background-image: url(../images/main/product_highlighter_img03.jpg); }
+.highlighter .slide04{ background-image: url(../images/main/product_highlighter_img04.jpg); }
+.highlighter .slide05{ background-image: url(../images/main/product_highlighter_img05.jpg); }
+.highlighter .slide06{ background-image: url(../images/main/product_highlighter_img06.jpg); }
+
+/* product - art - swiper */
+.art .slide01{ background-image: url(../images/main/product_art_img01.jpg); }
+.art .slide02{ background-image: url(../images/main/product_art_img02.jpg); }
+.art .slide03{ background-image: url(../images/main/product_art_img03.jpg); }
+.art .slide04{ background-image: url(../images/main/product_art_img04.jpg); }
+.art .slide05{ background-image: url(../images/main/product_art_img05.jpg); }
+.art .slide06{ background-image: url(../images/main/product_art_img06.jpg); }
+.art .slide07{ background-image: url(../images/main/product_art_img07.jpg); }
+
+
+/* banner */
+.banner{ position: relative; width: 100%; overflow: hidden; margin: 0px auto; }
+video{ width: 100%; }
+
+
+/* news */
+.news{ width: 100%; overflow: hidden; }
+.news .swiper-container{ position: relative; width: 100%; height: 100%; }
+.news .swiper-container > *{ float: left; }
+
+.news .swiper-slide{
+    width: 685px; max-width: 100%;
+    text-align: center; opacity: 0.5;
+}
+.news .swiper-slide-active{ opacity: 1; }
+.news img{ display: inline-block; width: 100%; margin: 100px 0 50px; object-fit: contain;}
+.news .swiper-slide-active .textArea{ opacity: 1; bottom: 0; }
+
+/* news - textArea */
+.news .textArea{ 
+    opacity: 0;
+    position: absolute; z-index: 30; bottom: -30px; left: -190px; overflow: hidden; 
+    padding: 100px 60px; box-sizing: border-box;
+    width: 380px; height: 470px; 
+    background-color: #212429; 
+    transition: 0.5s ease-in-out;
+}
+.news .textArea > *{ float: left; color: #fff; text-align: justify; }
+.news h5{ width: 100%; margin-bottom: 30px; text-align: justify-all; }
+.news p{ 
+    width: 100%; font-size: 0.875rem; line-height: 1.5rem; 
+    display: -webkit-box;
+    -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 8;
+}
+.news .textArea a{ 
+    position: absolute; bottom: 50px; right: 60px; 
+    display: block; 
+    float: right; 
+    width: 25px; height: 5px; 
+}
+.news .textArea span{ float: right; display: block; width: 5px; height: 5px; border-radius: 2.5px; background-color: #fff; }
+.circle02, .circle03{ margin-right: 5px;}
+
+
+/*=========================== /공통작업 ===============================*/
+
+
+
+/*=========================== desktop =============================*/
+@media screen and (min-width: 1024px){
+    /* arrivals */
+    .arrivals .box01, .arrivals .box02{ width: calc(33.33% - 20px); height: 325px; margin-right: 20px; box-sizing: border-box; }
+    .arrivals .box03{ float: right; height: 670px; }
+    .arrivals .box04{ width: calc(66.66% - 20px);height: 325px; margin-top: 20px; margin-right: 20px; }
+    
+    /* arrivals - hover */
+    .arrivals figure{ width: 100%; height: 100%; }
+    .arrivals figcaption{
+        position: relative; 
+        display: block;
+        width: calc(100% - 30px); height: calc(100% - 30px);
+        margin: 15px; padding: 15% 0; box-sizing: border-box;
+        background-color: #212429; 
+        text-align: center;
+        opacity: 0; transition: 0.3s ease-in-out;
+    }
+    .arrivals .box03 figcaption{ padding: 55% 0; }
+    .arrivals .box04 figcaption{ padding: 8% 0; }
+    .arrivals figcaption h2{ letter-spacing: 1px; font-size: 1.125rem; line-height: 1.875rem; }
+    .arrivals figcaption p{ letter-spacing: 3px; font-size: 0.75rem; margin-bottom: 30px;}
+    .arrivals figcaption > *{ color: #E0E0E0;}
+    .arrivals .wrap > div:hover figcaption{ opacity: 1;}
+
+    .plus{
+        position:relative; width:30px; height:30px; margin:45px auto 0;
+        transform: rotateZ(180deg);
+        transition: all 0.4s 0.2s;
+    }
+    .arrivals figure:hover .plus{ transform:rotateZ(0deg); transition: all 0.4s 0.2s; }
+    .plus div:nth-child(1){
+        position:absolute;left:0;top:50%;
+        width:100%;height:1px;
+        background:rgba(255,255,255,0.6);
+    }
+    .plus div:nth-child(2){
+        position:absolute;left:50%;top:0;
+        width:1px;height:100%;
+        background:rgba(255,255,255,0.6);
+    }
+
+    /* product */
+    .product .tabBox .btn a:hover{ color: #212429; background-color: #EAE6DB; }
+}
+/*=========================== /desktop =============================*/
+
+
+
+/*=========================== large desktop =============================*/
+@media screen and (min-width: 1280px){
+    
+}
+/*=========================== /large desktop =============================*/
+
+
+
+/*=========================== tablet ==============================*/
+@media screen and (max-width: 1023px){
+    /* mSlider */
+    .mSlider .bg{ display: none; } 
+    .mSlider .imgBg{ width: 100%; }
+    .mSlider .swiper-container{ width: 100%; }
+    .mSlider .swiper-pagination, .mSlider .swiper-button-next{ display: none; }
+    
+    /* mSlider - testWrap */
+    .textWrap{
+        top: calc(50% - 8.125rem); left: 0; right: 0; background-color: rgba(33,36,41,0.7);
+        width: 60%; margin: 0 auto; padding: 50px 10px; box-sizing: border-box; 
+    }
+    .textWrap > *{ text-align: center; }
+    .textWrap h4:before{ height: 3px; left: calc(50% - 3.125rem); }
+    /*.textWrap{
+    position: absolute; top: calc(50% - 8.125rem); left: 0; right: 0; margin: 0 auto; width: 100%; height: 500px; background-color: coral;  }
+    .textWrap > *{ color: #212429; }
+    .textWrap h4:before{ background-color: #212429; }*/
+    
+    .progress{ display: none; }
+
+    /* arrivals */
+    .arrivals{ padding: 0 10px; }
+    .arrivals .wrap > div{ width: calc(50% - 20px); height: 325px; margin: 10px; box-sizing: border-box; }
+        
+    /* news */
+    .news .textArea{
+        width: 40%; height: calc(100% - 155px); 
+        top: 100px; left: 0; 
+        padding: 50px 30px;
+    }
+    .news .swiper-slide-active .textArea{ opacity: 0.7; }
+    .news p{-webkit-line-clamp: 14;}
+
+}
+/*=========================== /tablet ==============================*/
+
+
+
+/*=========================== mobile ==============================*/
+@media screen and (max-width: 767px){
+    .pTop{ padding: 120px 50px;}
+    .pBottom > div{ padding: 15px 0; }
+
+    h4:before{ height: 3px; }
+
+    /* mslider */
+    .mSlider{ height: 670px; }
+
+    /* main sections - div */
+    .arrivals, .product, .news{ margin: 50px 0 25px; }
+    
+    /* arrivals */
+    .arrivals .wrap{ display: none; }
+    .arrivals .wrap > div{ width: calc(100% - 20px); height: 300px; margin: 0 10px; box-sizing: border-box; }
+
+    .arrivals .swiper-container{ display: block; margin-top: 30px; width: 100%; overflow: hidden;  }
+    .arrivals .swiper-wrapper{ float: left; position: relative; width: 100%; height: 325px; }
+    .arrivals .swiper-slide{
+        background-size: cover; background-position: center; background-repeat: no-repeat; object-fit: contain;
+    }
+    .arrivals .slide01{ background-image: url(../images/main/arrivals_img01.jpg); }
+    .arrivals .slide02{ background-image: url(../images/main/arrivals_img02.jpg); }
+    .arrivals .slide03{ background-image: url(../images/main/arrivals_img03.jpg); }
+    .arrivals .slide04{ background-image: url(../images/main/arrivals_img04.jpg); }
+
+    .arrivals .swiper-container a{  
+        display: block; 
+        position: absolute; bottom: 0; right: 0;
+        padding: 20px 30px; margin: 2rem; box-sizing: border-box; background-color:rgba(33,36,41,0.8); 
+        opacity: 0; 
+        transition: 0.3s ease-in-out;
+    }
+    .arrivals .swiper-container a.active{ opacity: 1; }
+
+    .arrivals .swiper-container a > *{ color: #fff; }
+    .arrivals .swiper-container p{ font-size: 0.875rem; letter-spacing: 2px; margin-bottom: 1rem; }
+    .arrivals .swiper-container h2{ font-size: 1.25rem; }
+
+    /* product */
+    .product .btn{ width: 100%;}
+    .product .tabBox .btn li{ float: left; width: calc(50% - 6px); margin: 3px; border: 3px solid; }
+    .product .tabBox .btn a{ line-height: calc(3.75rem - 6px); }
+
+    /* news */
+    .news .textArea{
+        position: absolute; 
+        width: 100%; height: 30%; 
+        bottom: 0; left: 0; right: 0;
+        padding: 30px 45px;
+    }
+    .news .textArea a{ bottom: 20px; right: 20px; }
+    .news h5{ font-size: 1.25rem; margin-bottom: 15px; }
+    .news p{ font-size: 0.875rem; -webkit-line-clamp: 2; }
+
+    /* footer */
+    footer, .familyShop{ padding: 50px 30px; }
+    footer h1 img{ width: 80%; }
+
+}
+/*=========================== mobile ==============================*/
+
+
+
+/*=========================== iphone 5 ==============================*/
+@media screen and (max-width: 320px){
+    .pWrap{ width: 90%; height: calc(586px - 180px)}
+    .pTop{ height: calc(85% - 40px); padding: 50px 20px; }
+    .pBottom{ height: 15%; }
+    .pBottom .never{ padding: 10px 0; }
+    .pBottom .close{ padding: 18px 0; }
+
+    .mSlider{ height: 568px; }
+}
+/*=========================== /iphone 5 ==============================*/
